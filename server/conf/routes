@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /health                     controllers.HealthCheckController.get()
+GET     /configuration              controllers.ConfigurationController.get(path: String ?= "", withDefaults: Boolean ?= false)
+GET     /configuration/reference    controllers.ConfigurationController.getReferences(path: String ?= "")
+GET     /configuration/keys         controllers.ConfigurationController.keys(path: String ?= "")
+GET     /configuration/history      controllers.ConfigurationController.history(path: Option[String])
+GET     /configuration/history/:seqNo      controllers.ConfigurationController.restore(seqNo: Long, path: String ?= "")
+POST    /configuration              controllers.ConfigurationController.add(path: String)
+PATCH   /configuration              controllers.ConfigurationController.patch(path: String)
+DELETE  /configuration              controllers.ConfigurationController.delete(path: String)
+GET     /configuration/default      controllers.ConfigurationController.getDefaults(path: String)
+POST    /configuration/default      controllers.ConfigurationController.addDefault(atPath: String, relativePath: String ?= "")
+POST    /configuration/link         controllers.ConfigurationController.addLink(path: String)
+DELETE  /configuration/default      controllers.ConfigurationController.deleteDefault(atPath: String, relativePath: String ?= "")
+POST    /configuration/snapshot     controllers.ConfigurationController.snapshot
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

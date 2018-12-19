@@ -1,0 +1,48 @@
+{
+  "name": "wasp",
+  "description": "JS client for accessing the WASP Configuration Service",
+  "version": "0.0.2",
+  "private": false,
+  "main": "lib/index.js",
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "scripts": {
+    "testWithCoverage": "mocha test && mocha --require blanket -R html-cov  > coverage.html",
+    "test": "mocha test",
+    "coverage": "mocha --require blanket -R html-cov  > coverage.html",
+    "compileOnce": "coffee  --bare --compile --output lib/ src/",
+    "compile": "coffee  --bare --compile --watch --output lib/ src/",
+    "prepare": "npm run compileOnce"
+  },
+  "devDependencies": {
+    "rfr": "*",
+    "blanket": "1.1.6",
+    "chai": "^4.0.2",
+    "coffee-script": "1.8.x",
+    "mocha": "^2.5.3",
+    "nock": "^9.0.13"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "lib/"
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "tests"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">= 6.x",
+    "npm": "3.x || 4.x || 5.x"
+  },
+  "publishConfig": {
+    "registry": "http://npm-registry.indix.tv/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ind9/wasp.git"
+  }
+}

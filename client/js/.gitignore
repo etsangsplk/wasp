@@ -1,0 +1,9 @@
+coverage.html
+node_modules/
+npm-debug.log
+.DS_Store
+src/*.js
+lib/**/*.js
+logs/*.log
+*.tgz
+local.json
